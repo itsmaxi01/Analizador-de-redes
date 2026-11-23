@@ -1,8 +1,8 @@
 import pytest
 
-from automata import HealthState
-from domain import DeviceNotFoundError, Network
-from graph import (
+from core.automata import HealthState
+from core.domain import DeviceNotFoundError, Network
+from core.graph import (
     GraphMode,
     Route,
     connected_components,

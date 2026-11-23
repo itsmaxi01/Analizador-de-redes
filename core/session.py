@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from domain import Network
-from loader import load_network
+from core.domain import Network
+from core.loader import load_network
 
 
 class NoNetworkLoadedError(RuntimeError):

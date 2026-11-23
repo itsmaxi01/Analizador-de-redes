@@ -2,15 +2,15 @@ from pathlib import Path
 
 import pytest
 
-from automata import HealthState
-from domain import (
+from core.automata import HealthState
+from core.domain import (
     CardinalityError,
     ConnectionNotFoundError,
     DeviceNotFoundError,
     DuplicateError,
     IncompatibleConnectionError,
 )
-from evaluator import (
+from language.evaluator import (
     DeviceView,
     Diagnosis,
     HealthView,
@@ -19,9 +19,9 @@ from evaluator import (
     Visualization,
     evaluate,
 )
-from graph import Route
-from loader import RecordValidationError
-from session import NetworkSession, NoNetworkLoadedError
+from core.graph import Route
+from core.loader import RecordValidationError
+from core.session import NetworkSession, NoNetworkLoadedError
 
 
 def write_data(

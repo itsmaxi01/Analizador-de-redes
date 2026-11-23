@@ -2,9 +2,9 @@ from pathlib import Path
 
 import pytest
 
-from automata import HealthState
-from domain import CardinalityError, DeviceNotFoundError, DuplicateError
-from graph import (
+from core.automata import HealthState
+from core.domain import CardinalityError, DeviceNotFoundError, DuplicateError
+from core.graph import (
     GraphMode,
     connected_components,
     degree,
@@ -12,7 +12,7 @@ from graph import (
     isolated_nodes,
     shortest_path,
 )
-from session import NetworkSession
+from core.session import NetworkSession
 
 
 def write_scenario(tmp_path: Path) -> tuple[Path, Path, Path]:

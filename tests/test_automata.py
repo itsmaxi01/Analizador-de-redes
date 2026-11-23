@@ -1,6 +1,6 @@
 import pytest
 
-from automata import HealthState, process_health
+from core.automata import HealthState, process_health
 
 
 @pytest.mark.parametrize(

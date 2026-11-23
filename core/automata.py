@@ -6,7 +6,7 @@ from enum import Enum
 from types import MappingProxyType
 from typing import Mapping
 
-from validators import validate_health_events
+from core.validators import validate_health_events
 
 
 class HealthState(str, Enum):

@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from loader import RecordValidationError, SourceFileNotFoundError
-from session import NetworkSession, NoNetworkLoadedError
+from core.loader import RecordValidationError, SourceFileNotFoundError
+from core.session import NetworkSession, NoNetworkLoadedError
 
 
 def write_network(

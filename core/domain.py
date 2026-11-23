@@ -6,8 +6,8 @@ from dataclasses import dataclass
 from types import MappingProxyType
 from typing import Mapping
 
-from automata import HealthState, process_health
-from validators import (
+from core.automata import HealthState, process_health
+from core.validators import (
     are_types_compatible,
     infer_device_type,
     validate_device_id,

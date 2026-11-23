@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from enum import Enum
 
-from validators import DEVICE_ID_PATTERN, HEALTH_EVENTS_PATTERN, IPV4_PATTERN
+from core.validators import DEVICE_ID_PATTERN, HEALTH_EVENTS_PATTERN, IPV4_PATTERN
 
 
 class TokenType(str, Enum):

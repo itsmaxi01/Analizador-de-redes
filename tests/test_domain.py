@@ -2,8 +2,8 @@ from types import MappingProxyType
 
 import pytest
 
-from automata import HealthState
-from domain import (
+from core.automata import HealthState
+from core.domain import (
     CardinalityError,
     Connection,
     ConnectionNotFoundError,

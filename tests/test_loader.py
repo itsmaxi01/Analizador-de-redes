@@ -2,10 +2,10 @@ from pathlib import Path
 
 import pytest
 
-from automata import HealthState
-from domain import Network
-from graph import GraphMode, connected_components, isolated_nodes, shortest_path
-from loader import (
+from core.automata import HealthState
+from core.domain import Network
+from core.graph import GraphMode, connected_components, isolated_nodes, shortest_path
+from core.loader import (
     ConnectionRecordError,
     DuplicateRecordError,
     EmptyDevicesError,

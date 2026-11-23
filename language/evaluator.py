@@ -5,10 +5,10 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-import parser
-from automata import HealthState
-from domain import Connection, Device, Network
-from graph import (
+from language import parser
+from core.automata import HealthState
+from core.domain import Connection, Device, Network
+from core.graph import (
     GraphMode,
     Route,
     connected_components,
@@ -18,10 +18,10 @@ from graph import (
     shortest_path,
     shortest_path_with_operational_intermediates,
 )
-from session import NetworkSession
+from core.session import NetworkSession
 
 
-DEFAULT_DATA_DIR = Path(__file__).resolve().parent / "data"
+DEFAULT_DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 _BOOLEAN_OPERATIONS = frozenset({"OPERATIVO", "ES_ESTADO", "RUTA", "Y", "O"})
 
 

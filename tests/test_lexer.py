@@ -1,6 +1,6 @@
 import pytest
 
-from lexer import LexerError, TokenType, tokenize
+from language.lexer import LexerError, TokenType, tokenize
 
 
 def test_tokenize_preserves_types_lexemes_and_positions():

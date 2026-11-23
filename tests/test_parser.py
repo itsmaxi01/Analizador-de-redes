@@ -1,7 +1,7 @@
 import pytest
 
-from lexer import LexerError
-from parser import ParserError, parse, trace_parse
+from language.lexer import LexerError
+from language.parser import ParserError, parse, trace_parse
 
 
 VALID_CONSTRUCTIONS = [

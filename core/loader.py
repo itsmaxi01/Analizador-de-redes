@@ -6,14 +6,14 @@ from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 
-from domain import (
+from core.domain import (
     CardinalityError,
     DeviceNotFoundError,
     DuplicateError,
     IncompatibleConnectionError,
     Network,
 )
-from validators import validate_device_id, validate_health_events, validate_ipv4
+from core.validators import validate_device_id, validate_health_events, validate_ipv4
 
 
 class LoaderError(Exception):

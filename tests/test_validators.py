@@ -1,6 +1,6 @@
 import pytest
 
-from validators import (
+from core.validators import (
     are_types_compatible,
     infer_device_type,
     validate_device_id,

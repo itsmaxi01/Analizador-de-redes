@@ -2,13 +2,13 @@ from pathlib import Path
 
 import pytest
 
-from automata import HealthState
-from domain import DeviceNotFoundError
-from evaluator import Diagnosis, DeviceView, HealthView, LoadSummary, execute
-from graph import Route
-from lexer import LexerError
-from parser import ParserError
-from session import NetworkSession
+from core.automata import HealthState
+from core.domain import DeviceNotFoundError
+from language.evaluator import Diagnosis, DeviceView, HealthView, LoadSummary, execute
+from core.graph import Route
+from language.lexer import LexerError
+from language.parser import ParserError
+from core.session import NetworkSession
 
 
 def language_data(tmp_path: Path) -> Path:

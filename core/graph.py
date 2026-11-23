@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Callable
 
-from domain import Network
+from core.domain import Network
 
 
 class GraphMode(str, Enum):

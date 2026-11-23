@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import MutableSequence
 
-from lexer import LexerError, Token, TokenType, tokenize
+from language.lexer import LexerError, Token, TokenType, tokenize
 
 
 NonTerminal = str
