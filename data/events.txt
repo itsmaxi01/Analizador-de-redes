@@ -1,0 +1,7 @@
+Router1:RRR
+Switch1:RRTT
+Switch2:RR
+PC1:RR
+PC2:R
+PC3:R
+Server1:RRT

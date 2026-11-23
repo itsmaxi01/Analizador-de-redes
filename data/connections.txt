@@ -1,0 +1,6 @@
+Router1,Switch1
+Router1,Switch2
+Switch1,Switch2
+Switch1,PC1
+Switch1,PC2
+Switch2,Server1
