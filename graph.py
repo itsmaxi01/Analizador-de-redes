@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections import deque
 from dataclasses import dataclass
 from enum import Enum
+from typing import Callable
 
 from domain import Network
 
@@ -54,6 +55,31 @@ def _reconstruct_route(
     return Route(tuple(reversed(reversed_path)))
 
 
+def _shortest_path_where(
+    network: Network,
+    origin: str,
+    destination: str,
+    can_visit: Callable[[str], bool],
+) -> Route | None:
+    """Run the shared deterministic BFS under a node-admission predicate."""
+    if origin == destination:
+        return Route((origin,))
+
+    parents: dict[str, str | None] = {origin: None}
+    pending: deque[str] = deque([origin])
+
+    while pending:
+        current = pending.popleft()
+        for neighbor in sorted(network.neighbors(current)):
+            if neighbor in parents or not can_visit(neighbor):
+                continue
+            parents[neighbor] = current
+            if neighbor == destination:
+                return _reconstruct_route(parents, destination)
+            pending.append(neighbor)
+    return None
+
+
 def shortest_path(
     network: Network,
     origin: str,
@@ -69,22 +95,30 @@ def shortest_path(
         not origin_device.operational or not destination_device.operational
     ):
         return None
-    if origin == destination:
-        return Route((origin,))
+    return _shortest_path_where(
+        network,
+        origin,
+        destination,
+        lambda device_id: _is_in_view(network, device_id, selected_mode),
+    )
 
-    parents: dict[str, str | None] = {origin: None}
-    pending: deque[str] = deque([origin])
 
-    while pending:
-        current = pending.popleft()
-        for neighbor in sorted(network.neighbors(current)):
-            if neighbor in parents or not _is_in_view(network, neighbor, selected_mode):
-                continue
-            parents[neighbor] = current
-            if neighbor == destination:
-                return _reconstruct_route(parents, destination)
-            pending.append(neighbor)
-    return None
+def shortest_path_with_operational_intermediates(
+    network: Network,
+    origin: str,
+    destination: str,
+) -> Route | None:
+    """Find a path whose internal nodes are operational, ignoring endpoint health."""
+    network.get_device(origin)
+    network.get_device(destination)
+    return _shortest_path_where(
+        network,
+        origin,
+        destination,
+        lambda device_id: (
+            device_id == destination or network.get_device(device_id).operational
+        ),
+    )
 
 
 def is_connected(
